@@ -1,20 +1,26 @@
 {
   "name": "@kamona/edge-cli",
   "version": "0.1.0",
-  "description": "CLI for edge",
+  "description": "CLI for edge-js/edge.js",
   "main": "dist/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kamona-WD/edge-cli.git"
   },
-  "keywords": [],
+  "keywords": ["edge.js", "cli", "templeting language"],
   "author": "Kamona-WD",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kamona-WD/edge-cli/issues"
   },
-  "homepage": "https://github.com/Kamona-WD/edge-cli#readme"
+  "homepage": "https://github.com/Kamona-WD/edge-cli#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/register": "^7.14.5"
+  }
 }

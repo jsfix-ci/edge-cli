@@ -4,7 +4,6 @@ del
 npm-debug.log
 coverage
 .nyc_output
-dist
 build
 .vscode
 .idea
