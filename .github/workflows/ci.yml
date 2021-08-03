@@ -11,6 +11,8 @@ jobs:
 
       - name: Install packages
         run: npm i
+      - name: Run Build
+        run: npm run build
       - name: Run Prettier
         run: npm run format
       - name: Run Test
