@@ -10,15 +10,17 @@
     "dev": "babel src -d dist -w",
     "build": "babel src -d dist",
     "format": "prettier --write src test",
-    "test": "npx ava",
+    "test": "jest",
     "prepare": "husky install"
   },
   "lint-staged": {
     "src/**/*.js": [
-      "prettier --write"
+      "prettier --write",
+      "jest"
     ],
     "test/**/*.js": [
-      "prettier --write"
+      "prettier --write",
+      "jest"
     ]
   },
   "repository": {
@@ -45,10 +47,11 @@
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.9",
     "@babel/register": "^7.14.5",
-    "ava": "^3.15.0",
+    "babel-jest": "^27.0.6",
     "cross-env": "^7.0.3",
     "execa": "^5.1.1",
     "husky": "^7.0.0",
+    "jest": "^27.0.6",
     "lint-staged": "^11.1.1",
     "prettier": "^2.3.2",
     "read-pkg": "5.2.0"
