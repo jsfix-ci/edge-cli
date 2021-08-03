@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "babel src -d dist -w",
     "build": "babel src -d dist",
-    "format": "prettier --write src",
-    "test": "cross-env ava --config ava.config.js",
+    "format": "prettier --write src test",
+    "test": "npx ava",
     "prepare": "husky install"
   },
   "lint-staged": {
