@@ -1,7 +1,7 @@
 {
   "name": "@kamona/edge-cli",
   "version": "0.1.0",
-  "description": "CLI for edge-js/edge.js",
+  "description": "CLI tool for edge-js/edge",
   "main": "dist/cli.js",
   "scripts": {
     "build": "babel src -d dist",
@@ -16,7 +16,11 @@
     "cli",
     "templeting language"
   ],
-  "author": "Kamona-WD",
+  "author": {
+    "name": "Ahmed Kamel",
+    "email": "ak3849909@gmail.com",
+    "url": "https://github.com/Kamona-WD"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kamona-WD/edge-cli/issues"
