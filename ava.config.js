@@ -1,6 +1,6 @@
 export default {
   verbose: true,
-  timeout: '1m',
+  timeout: '2m',
   require: [
     "@babel/register"
   ]

@@ -16,4 +16,4 @@ jobs:
       - name: Run Prettier
         run: npm run format
       - name: Run Test
-        run: npm test
+        run: sudo npm test
