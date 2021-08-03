@@ -1,17 +1,29 @@
-name: CI
+name: Actions Status
 on: [push]
+
+env:
+  CI: true
+
 jobs:
-  eslint:
-    name: Format & Test
-    runs-on: ubuntu-latest
+  run:
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [14]
+        os: [ubuntu-latest, windows-latest]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install packages
+      - name: Install npm dependencies
         run: npm i
-      - name: Run Prettier
+      - name: Run format
         run: npm run format
-      - name: Run Test
-        run: npm test
+      - name: Run build
+        run: npm run build
+      - name: Run tests
+        run: npm run test
