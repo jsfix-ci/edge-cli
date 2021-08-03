@@ -1,0 +1,20 @@
+{
+  "name": "@kamona/edge-cli",
+  "version": "0.1.0",
+  "description": "CLI for edge",
+  "main": "dist/cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamona-WD/edge-cli.git"
+  },
+  "keywords": [],
+  "author": "Kamona-WD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kamona-WD/edge-cli/issues"
+  },
+  "homepage": "https://github.com/Kamona-WD/edge-cli#readme"
+}
