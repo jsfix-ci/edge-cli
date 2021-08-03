@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   eslint:
-    name: Format
+    name: Format & Test
     runs-on: ubuntu-latest
 
     steps:
@@ -13,3 +13,5 @@ jobs:
         run: npm i
       - name: Run Prettier
         run: npm run format
+      - name: Run Test
+        run: npm test
