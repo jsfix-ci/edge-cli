@@ -1,6 +1,6 @@
 {
   "name": "@kamona/edge-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI tool for edge-js/edge",
   "main": "dist/cli.js",
   "bin": {
