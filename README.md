@@ -5,7 +5,7 @@
 [![GitHub license](https://img.shields.io/github/license/Kamona-WD/edge-cli)](https://github.com/Kamona-WD/edge-cli/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@kamona/edge-cli.svg?sanitize=true)](https://www.npmjs.com/package/@kamona/edge-cli)
 
-> This project did not tested yet and have a lot of edge cases. I just was try something
+> This project did not tested yet.
 
 ## Quick start
 
