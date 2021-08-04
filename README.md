@@ -7,6 +7,8 @@
 
 > This project did not tested yet.
 
+[Example project using @kamona/edge-cli for compiling html](https://github.com/Kamona-WD/starter-dashboard-layout)
+
 ## Quick start
 
 ```sh
