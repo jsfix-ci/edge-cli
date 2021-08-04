@@ -1,6 +1,6 @@
 # @kamona/edge-cli
 
-### CLI tool for [edge-js/edge](https://github.com/edge-js/edge)
+### CLI tool for compiling your html with [edge-js/edge](https://github.com/edge-js/edge)
 
 [![GitHub license](https://img.shields.io/github/license/Kamona-WD/edge-cli)](https://github.com/Kamona-WD/edge-cli/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@kamona/edge-cli.svg?sanitize=true)](https://www.npmjs.com/package/@kamona/edge-cli)
