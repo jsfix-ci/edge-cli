@@ -1,3 +1,7 @@
+// This code is modified version of
+// https://github.com/posthtml/posthtml-cli/blob/master/src/cfg-resolve.js
+// We will write our own later. Just make it work right now.
+
 import path from 'path'
 import { cosmiconfigSync } from 'cosmiconfig'
 import mergeOptions from 'merge-options'

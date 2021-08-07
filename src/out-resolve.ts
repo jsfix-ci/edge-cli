@@ -1,3 +1,7 @@
+// Code in this file copied from posthtml-cli
+// https://github.com/posthtml/posthtml-cli/blob/master/src/out-resolve.js
+// We will write our own later. Just make it work right now.
+
 import path from 'path'
 
 // @ts-ignore

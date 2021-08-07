@@ -14,7 +14,7 @@ import outResolve from './out-resolve'
 const program = new Command('edge.js')
 
 program
-  .option('-r, --root <root>', 'Root directory', 'src')
+  .option('-r, --root <root>', 'Root directory to mount edge.js from', 'src')
   .option('-o, --output <output>', 'Output directory', 'dist')
   .option('-c, --config <config>', 'Config file name')
   .option('-a, --all-in-output', 'all-in-output')

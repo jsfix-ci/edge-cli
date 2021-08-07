@@ -7,7 +7,7 @@
     "edge": "dist/cli.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=10"
   },
   "files": [
     "dist"
