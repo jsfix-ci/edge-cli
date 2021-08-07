@@ -1,7 +1,10 @@
 module.exports = {
-  collectCoverage: false,
-  coverageDirectory: "coverage",
+  roots: ['test', 'src'],
+  testTimeout: 30000,
   testPathIgnorePatterns: [
     "/node_modules/",
-  ]
+  ],
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
 };

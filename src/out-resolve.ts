@@ -1,5 +1,6 @@
 import path from 'path'
 
+// @ts-ignore
 export default (input, { output, root, allInOutput } = {}) =>
   new Promise((resolve) => {
     if (output && path.extname(output)) {
