@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { writeFile } from 'fs'
 import { resolve, dirname } from 'path'
-// import meow from 'meow'
 import { Command } from 'commander'
 import { version } from '../package.json'
 import fg from 'fast-glob'
