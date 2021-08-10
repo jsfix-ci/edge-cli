@@ -16,17 +16,28 @@ export const resolveInput = (root: string, input: any): Promise<string[]> => {
       errors.push('Input is required')
     }
 
-    let pathes = []
+    let paths = []
+    let ignoredPaths: string[] = []
     let inputArray = (input = [].concat(input).filter(Boolean))
+    inputArray.forEach((pattern) => {
+      const ignoreInput = String(pattern).startsWith('!')
+      if (ignoreInput) {
+        ignoredPaths.push(`${normalizePath(join(resolve(root, String(pattern).slice(1))))}`)
+      }
+    })
+
     for (let pattern of inputArray) {
-      let files = await fg([normalizePath(join(root, pattern)), '!**/node_modules/**'])
-      pathes.push(...files)
+      let files = await fg([normalizePath(join(resolve(root), pattern))], {
+        ignore: ['**/node_modules/**', ...ignoredPaths],
+      })
+
+      paths.push(...files)
     }
-    if (!pathes.length) {
+    if (!paths.length) {
       errors.push(`Patern ${yellow(inputArray)} dosn't exist in ${yellow(basename(root))}`)
     }
 
-    return res(pathes)
+    return res(paths)
   })
 }
 
@@ -53,7 +64,6 @@ export const resolveOutput = ({
 export const resolveOptions = async (options: BuildOptions): Promise<BuildOptions> => {
   return new Promise(async (res) => {
     let { root = 'src', input, output = 'dist', watch = false, allInOutput = true } = options
-
     root = resolve(root)
 
     if (!existsSync(root)) {
@@ -101,7 +111,7 @@ export const build = async (options: BuildOptions): Promise<void | null> => {
     console.log(`${cyan('[edge]')} Watching ${yellow(basename(root))}`)
     chokidar
       .watch(`${normalizePath(join(root, '**/*.edge'))}`, {
-        ignoreInitial: true,
+        ignoreInitial: false,
         awaitWriteFinish: {
           stabilityThreshold: 50,
           pollInterval: 10,
