@@ -1,9 +1,9 @@
 const { dependencies } = require('../package.json')
 
-let deps = Object.keys(dependencies).map(dep => dep !== 'edge.js' ? dep : delete dep)
+let deps = Object.keys(dependencies).map(dep => dep !== 'edge.js' ? dep : delete dep).filter(Boolean)
 
 require('esbuild').build({
-    entryPoints: ['src/cli.ts', 'src/cfg-resolve.ts', 'src/out-resolve.ts'],
+    entryPoints: ['src/index.ts', 'src/cli.ts'],
     outdir: 'dist',
     platform: 'node',
     target: 'node10.4',
