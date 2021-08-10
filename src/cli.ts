@@ -9,7 +9,7 @@ const program = new Command('edge.js')
 program
   .option('-r, --root <root>', 'Root directory to mount edge.js from', 'src')
   .option('-o, --output <output>', 'Output directory', 'dist')
-  .option('-no-a, --no-all-in-output', 'all-in-output')
+  .option('-no-a, --no-all-in-output', "Don't save the nesting structure for output")
   .option('-w, --watch', 'Watch files')
   .version(version, '-v, --version')
   .description('CLI tool for compiling html with edge.js')
@@ -17,8 +17,8 @@ program
     'after',
     `
       Examples:
-      $ edge index.edge -r src -o dist -a -w
-      $ edge *.edge pages/*.edge -r src -o dist -a -w`
+      $ edge index.edge -r src -o dist -w
+      $ edge *.edge pages/*.edge -r src -o dist --no-all-in-output -w`
   )
   .parse(process.argv)
 

@@ -21,18 +21,19 @@ Options:
   -r, --root <root>          Root directory to mount edge.js from (default:
                              \\"src\\")
   -o, --output <output>      Output directory (default: \\"dist\\")
-  -no-a, --no-all-in-output  all-in-output
+  -no-a, --no-all-in-output  Don't save the nesting structure for output
   -w, --watch                Watch files
   -v, --version              output the version number
   -h, --help                 display help for command
 
       Examples:
-      $ edge index.edge -r src -o dist -a -w
-      $ edge *.edge pages/*.edge -r src -o dist -a -w"
+      $ edge index.edge -r src -o dist -w
+      $ edge *.edge pages/*.edge -r src -o dist --no-all-in-output -w"
 `)
 })
 
 test('Exit with no input', async () => {
+  // TODO: test process.exit
   const { stdout } = await execa('node', ['-r', 'ts-node/register', cli], { reject: false })
   expect(stdout).toMatch(/Input is required/)
 })

@@ -4,6 +4,7 @@ import edge from 'edge.js'
 import fg from 'fast-glob'
 import normalizePath from 'normalize-path'
 import makeDir from 'make-dir'
+import chokidar from 'chokidar'
 import { green, cyan, bold, yellow, cyanBright } from 'chalk'
 import { BuildOptions } from './types'
 
@@ -51,7 +52,7 @@ export const resolveOutput = ({
 
 export const resolveOptions = async (options: BuildOptions): Promise<BuildOptions> => {
   return new Promise(async (res) => {
-    let { root = 'src', input, output = 'dist', allInOutput = true } = options
+    let { root = 'src', input, output = 'dist', watch = false, allInOutput = true } = options
 
     root = resolve(root)
 
@@ -67,6 +68,7 @@ export const resolveOptions = async (options: BuildOptions): Promise<BuildOption
       root,
       input,
       output,
+      watch,
       allInOutput,
     })
   })
@@ -85,7 +87,7 @@ export const write = async (html: string, path: string): Promise<void> => {
 }
 
 export const build = async (options: BuildOptions): Promise<void | null> => {
-  const { root, input, output, allInOutput } = await resolveOptions(options)
+  const { root, input, output, watch, allInOutput } = await resolveOptions(options)
 
   if (errors.length) {
     console.log(cyanBright('[Edge]:'))
@@ -93,6 +95,34 @@ export const build = async (options: BuildOptions): Promise<void | null> => {
       console.log(`  ${i + 1}- ${error}`)
     })
     return null
+  }
+
+  if (watch) {
+    console.log(`${cyan('[edge]')} Watching ${yellow(basename(root))}`)
+    chokidar
+      .watch(`${normalizePath(join(root, '**/*.edge'))}`, {
+        ignoreInitial: true,
+        awaitWriteFinish: {
+          stabilityThreshold: 50,
+          pollInterval: 10,
+        },
+      })
+      .on('all', async (event, path) => {
+        console.log(`[${cyan(event)}]: ${path}`)
+        // TODO: Refactor
+        for (const path of input) {
+          let html = await compile(root, relative(root, path))
+
+          let filePath = await resolveOutput({
+            input: path.replace(extname(path), ''),
+            root,
+            output,
+            allInOutput,
+          })
+          await write(html, filePath)
+        }
+      })
+    return
   }
 
   console.log('Compiling html....')

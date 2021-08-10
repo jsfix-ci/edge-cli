@@ -10,6 +10,7 @@
     "node": ">=10"
   },
   "files": [
+    "bin",
     "dist"
   ],
   "publishConfig": {
@@ -17,8 +18,8 @@
   },
   "scripts": {
     "cli": "ts-node src/cli.ts",
-    "dev": "node scripts/build -w",
-    "build": "node scripts/build",
+    "dev": "cross-env NODE_ENV=development node scripts/build",
+    "build": "cross-env NODE_ENV=production node scripts/build",
     "format": "prettier --write src test",
     "test": "jest",
     "prepare": "husky install",
