@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 del
+dist
+playground
 npm-debug.log
 coverage
 .nyc_output

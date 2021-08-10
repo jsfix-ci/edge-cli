@@ -14,23 +14,3 @@
 ```sh
 npx @kamona/edge-cli index.edge -r src -o dist -w
 ```
-
-## Config example
-
-```sh
-npx @kamona/edge-cli -c edge.config.js
-```
-
-Config file
-
-```js
-// edge.config.js
-module.exports = {
-  input: ['*.edge', 'pages/*.edge'],
-  root: 'src',
-  output: 'dist',
-  allInOutput: true,
-}
-```
-
-If you don't specify config flag it will search for `.edgerc`, `edge.config.js`, `edge.config.cjs` or `edge` key in `package.json`.
