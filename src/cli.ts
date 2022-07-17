@@ -1,4 +1,4 @@
-import { Command } from 'commander'
+import { Option, Command } from 'commander';
 import { red } from 'chalk'
 import { build } from '.'
 import { version } from '../package.json'
@@ -7,8 +7,8 @@ import { BuildOptions } from './types'
 const program = new Command('edge.js')
 
 program
-  .option('-r, --root <root>', 'Root directory to mount edge.js from', 'src')
-  .option('-o, --output <output>', 'Output directory', 'dist')
+  .addOption(new Option('-r, --root <root>', 'Root directory to mount edge.js from').preset('src'))
+  .addOption(new Option('-o, --output <output>', 'Output directory').preset('dist'))
   .option('-no-a, --no-all-in-output', "Don't save the nesting structure for output")
   .option('-w, --watch', 'Watch files')
   .version(version, '-v, --version')
