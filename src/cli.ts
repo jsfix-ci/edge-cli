@@ -7,8 +7,8 @@ import { BuildOptions } from './types'
 const program = new Command('edge.js')
 
 program
-  .option('-r, --root <root>', 'Root directory to mount edge.js from', 'src')
-  .option('-o, --output <output>', 'Output directory', 'dist')
+  .option('-r, --root <root>','Root directory to mount edge.js from').preset('src')
+  .option('-o, --output <output>','Output directory').preset('dist')
   .option('-no-a, --no-all-in-output', "Don't save the nesting structure for output")
   .option('-w, --watch', 'Watch files')
   .version(version, '-v, --version')
